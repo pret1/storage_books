@@ -4,10 +4,18 @@ declare(strict_types=1);
 
 namespace App;
 
-class Main
+use App\RouteInterface;
+
+/**
+ * Class Main - Homepage
+ */
+class Main implements RouteInterface
 {
-    public function __construct()
-    {
-        echo "<h1>Main page</h1>";
-    }
+   /**
+    * @return void
+    */
+   public function action(): void
+   {
+       echo "Main page";
+   }
 }

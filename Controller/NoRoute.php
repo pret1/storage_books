@@ -4,10 +4,15 @@ declare(strict_types=1);
 
 namespace App;
 
-class NoRoute
+use App\RouteInterface;
+
+class NoRoute implements RouteInterface
 {
-    public function __construct()
+    /**
+     * @return void
+     */
+    public function action(): void
     {
-        echo "<h1>Page not found 404</h1>";
+        echo "<h1>Page not found 404 </h1>";
     }
 }

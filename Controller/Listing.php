@@ -4,10 +4,15 @@ declare(strict_types=1);
 
 namespace App;
 
-class Listing
+use App\RouteInterface;
+
+class Listing implements RouteInterface
 {
-    public function __construct()
+    /**
+     * @return void
+     */
+    public function action(): void
     {
-        echo "<h1>Wellcome</h1>";
+        echo "Listing page";
     }
 }

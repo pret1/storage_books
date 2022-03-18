@@ -4,10 +4,15 @@ declare(strict_types=1);
 
 namespace App;
 
-class More
+use App\RouteInterface;
+
+class More implements RouteInterface
 {
-    public function __construct()
+    /**
+     * @return void
+     */
+    public function action(): void
     {
-        echo "<h1>One more page</h1>";
+        echo "More page";
     }
 }
