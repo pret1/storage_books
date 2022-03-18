@@ -3,29 +3,20 @@ declare(strict_types=1);
 
 namespace App;
 
+use App\{Main, More, NoRoute, Listing};
+
 class Router
 {
-    private $pages = [];
-
-    public function addRoute($url, $path)
+    public static function run(): void
     {
-        $this->pages[$url] = $path;
-    }
+        $routes = explode('/', $_SERVER['REQUEST_URI']);
+        $actionName = $routes[1] ?: 'Main';
 
-    public function route($url)
-    {
-        $path = $this->pages[$url];
-        $file_dir = $path;
-        if ($path == "") {
-            require "NoRoute.php";
-            die();
-        }
-
-        if (file_exists($file_dir)) {
-            require $file_dir;
+        $controllerClass = sprintf("\App\%s", ucfirst($actionName));
+        if (class_exists($controllerClass)) {
+            $controller = new $controllerClass();
         } else {
-            require "NoRoute.php";
-            die();
+            $controller = new NoRoute();
         }
     }
 }
