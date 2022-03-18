@@ -1,9 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace App;
-
-use App\{Main, More, NoRoute, Listing, RouteInterface};
+namespace App\Controller;
 
 /**
  * Class Router
@@ -20,7 +18,7 @@ class Router
         $routes = explode('/', $_SERVER['REQUEST_URI']);
         $actionName = $routes[1] ?: 'Main';
 
-        $controllerClass = sprintf("\App\%s", ucfirst($actionName));
+        $controllerClass = sprintf("\App\Controller\%s", ucfirst($actionName));
         if (class_exists($controllerClass)) {
             /** @var RouteInterface $controller */
             $controller = new $controllerClass();

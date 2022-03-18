@@ -2,9 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App;
-
-use App\RouteInterface;
+namespace App\Controller;
 
 /**
  * Class Main - Homepage

@@ -2,9 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App;
-
-use App\RouteInterface;
+namespace App\Controller;
 
 class Listing implements RouteInterface
 {

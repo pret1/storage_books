@@ -2,17 +2,15 @@
 
 declare(strict_types=1);
 
-namespace App;
+namespace App\Controller;
 
-use App\RouteInterface;
-
-class More implements RouteInterface
+class NoRoute implements RouteInterface
 {
     /**
      * @return void
      */
     public function action(): void
     {
-        echo "More page";
+        echo "<h1>Page not found 404 </h1>";
     }
 }
