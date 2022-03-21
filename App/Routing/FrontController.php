@@ -6,12 +6,23 @@ use App\Controller\ControllerInterface;
 
 class FrontController
 {
+    /**
+     * @var RoutersPoolInterface
+     */
+    private RoutersPoolInterface $routersPool;
+
+    /**
+     * @param RoutersPoolInterface $routersPool
+     */
+    public function __construct(RoutersPoolInterface $routersPool)
+    {
+
+        $this->$routersPool = $routersPool;
+    }
     public function execute()
     {
-        /**
-         * @var RouterInterface $router
-         */
-        foreach ($routers as $router){
+        /** @var RouterInterface $router */
+        foreach ($this->routersPool->get() as $router){
            $result = $router->match();
             if($result){
                 /** @var ControllerInterface $result */
