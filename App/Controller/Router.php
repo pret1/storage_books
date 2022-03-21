@@ -13,7 +13,7 @@ class Router
     /**
      * @return void
      */
-    public static function run(): void
+    public function run(): void
     {
         $routes = explode('/', $_SERVER['REQUEST_URI']);
         $actionName = $routes[1] ?: 'Main';
@@ -23,7 +23,7 @@ class Router
             /** @var RouteInterface $controller */
             $controller = new $controllerClass();
         } else {
-            $controller = new NoRoute();
+            return;
         }
 
         $controller->action();
