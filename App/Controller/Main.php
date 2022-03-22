@@ -7,13 +7,13 @@ namespace App\Controller;
 /**
  * Class Main - Homepage
  */
-class Main implements RouteInterface
+class Main implements ControllerInterface
 {
-   /**
-    * @return void
-    */
-   public function action(): void
-   {
-       echo "Main page";
-   }
+    /**
+     * @return void
+     */
+    public function execute(): void // display homepage
+    {
+        echo "Main page";
+    }
 }

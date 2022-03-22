@@ -2,4 +2,7 @@
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-\App\Controller\Router::run();
+use App\Routing\FrontController;
+
+$frontController = new FrontController();
+$frontController->execute();
