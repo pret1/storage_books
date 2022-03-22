@@ -6,5 +6,8 @@ namespace App\Controller;
 
 interface ControllerInterface
 {
-    public function execute();
+    /**
+     * @return void
+     */
+    public function execute(): void;
 }

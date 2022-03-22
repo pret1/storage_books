@@ -23,11 +23,8 @@ class Start implements RouterInterface
         if (class_exists($controllerClass)) {
             /** @var ControllerInterface $controller */
            return $controller = new $controllerClass();
-//            return true;
         } else {
             return false;
         }
-
-//        $controller->execute();
     }
 }

@@ -25,11 +25,6 @@ class NotFound implements RouterInterface
             return false;
         } else {
             return new NoRoute();
-//            return true;
         }
-
-//        $controller->execute();
-
-//        return new NoRoute();
     }
 }
