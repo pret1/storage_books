@@ -16,7 +16,6 @@ class RoutersPool implements RoutersPoolInterface
      */
     public function __construct(array $routers)
     {
-
         $this->routers = $routers;
     }
 

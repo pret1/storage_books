@@ -2,7 +2,11 @@
 
 declare(strict_types=1);
 
+namespace App\Routing\Router;
+
 use App\Controller\ControllerInterface;
+use App\Controller\Main;
+use App\Routing\RouterInterface;
 
 class Start implements RouterInterface
 {
@@ -18,11 +22,12 @@ class Start implements RouterInterface
         $controllerClass = sprintf("\App\Controller\%s", ucfirst($actionName));
         if (class_exists($controllerClass)) {
             /** @var ControllerInterface $controller */
-            $controller = new $controllerClass();
+           return $controller = new $controllerClass();
+//            return true;
         } else {
             return false;
         }
 
-        $controller->execute();
+//        $controller->execute();
     }
 }

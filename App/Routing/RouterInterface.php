@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+namespace App\Routing;
+
 use App\Controller\ControllerInterface;
 
 interface RouterInterface
