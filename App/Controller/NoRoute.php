@@ -9,7 +9,7 @@ class NoRoute implements ControllerInterface
     /**
      * @return void
      */
-    public function execute(): void
+    public function execute(): void // display page with error 404
     {
         echo "<h1>Page not found 404 </h1>";
     }

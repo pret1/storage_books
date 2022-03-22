@@ -13,18 +13,8 @@ class NotFound implements RouterInterface
     /**
      * @return ControllerInterface|false
      */
-    public function match()
+    public function match() // returns controller with 404 error
     {
-
-        $routes = explode('/', $_SERVER['REQUEST_URI']);
-        $actionName = $routes[1] ?: 'Main';
-
-        $controllerClass = sprintf("\App\Controller\%s", ucfirst($actionName));
-        if (class_exists($controllerClass)) {
-            /** @var ControllerInterface $controller */
-            return false;
-        } else {
-            return new NoRoute();
-        }
+        return new NoRoute();
     }
 }

@@ -22,7 +22,7 @@ class RoutersPool implements RoutersPoolInterface
     /**
      * @return RouterInterface[]
      */
-    public function get(): array
+    public function get(): array // accept array of routes
     {
         return $this->routers;
     }

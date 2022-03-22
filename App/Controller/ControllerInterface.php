@@ -9,5 +9,5 @@ interface ControllerInterface
     /**
      * @return void
      */
-    public function execute(): void;
+    public function execute(): void; // this function executes the logic defined in the class
 }

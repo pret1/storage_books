@@ -11,5 +11,5 @@ interface RouterInterface
     /**
      * @return ControllerInterface|false
      */
-    public function match();
+    public function match(); // function work with routers
 }

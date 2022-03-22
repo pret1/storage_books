@@ -9,7 +9,7 @@ class More implements ControllerInterface
     /**
      * @return void
      */
-    public function execute(): void
+    public function execute(): void // display example other pages
     {
         echo "More page";
     }

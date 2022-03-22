@@ -9,7 +9,7 @@ class Listing implements ControllerInterface
     /**
      * @return void
      */
-    public function execute(): void
+    public function execute(): void // display listing page
     {
         echo "Listing page";
     }

@@ -9,11 +9,11 @@ namespace App\Controller;
  */
 class Main implements ControllerInterface
 {
-   /**
-    * @return void
-    */
-   public function execute(): void
-   {
-       echo "Main page";
-   }
+    /**
+     * @return void
+     */
+    public function execute(): void // display homepage
+    {
+        echo "Main page";
+    }
 }

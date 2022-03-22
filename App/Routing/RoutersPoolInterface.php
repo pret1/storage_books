@@ -9,5 +9,5 @@ interface RoutersPoolInterface
     /**
      * @return array
      */
-    public function get(): array;
+    public function get(): array; // work with array routes
 }
