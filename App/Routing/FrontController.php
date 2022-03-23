@@ -11,10 +11,12 @@ use App\Routing\Router\{NotFound, Robots, Start};
 class FrontController
 {
     /**
+     * Determines the router what we need
+     *
      * @return void
      * @throws \Exception
      */
-    public function execute(): void // the function determines the router what we need
+    public function execute(): void
     {
         $routersPool = new RoutersPool(
             [

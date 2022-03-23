@@ -7,9 +7,11 @@ namespace App\Controller;
 class Listing implements ControllerInterface
 {
     /**
+     * @inheritDoc
+     *
      * @return void
      */
-    public function execute(): void // display listing page
+    public function execute(): void
     {
         echo "Listing page";
     }

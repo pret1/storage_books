@@ -7,9 +7,11 @@ namespace App\Controller;
 class NoRoute implements ControllerInterface
 {
     /**
+     * @inheritDoc
+     *
      * @return void
      */
-    public function execute(): void // display page with error 404
+    public function execute(): void
     {
         echo "<h1>Page not found 404 </h1>";
     }

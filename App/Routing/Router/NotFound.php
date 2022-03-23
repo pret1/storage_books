@@ -11,9 +11,11 @@ class NotFound implements RouterInterface
 {
 
     /**
+     * @inheritDoc
+     *
      * @return ControllerInterface|false
      */
-    public function match() // returns controller with 404 error
+    public function match()
     {
         return new NoRoute();
     }

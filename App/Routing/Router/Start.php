@@ -11,9 +11,11 @@ class Start implements RouterInterface
 {
 
     /**
+     * @inheritDoc
+     *
      * @return ControllerInterface|false
      */
-    public function match() // returns controller who contains templates pages
+    public function match()
     {
         $routes = explode('/', $_SERVER['REQUEST_URI']);
         $actionName = $routes[1] ?: 'Main';

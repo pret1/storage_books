@@ -20,9 +20,11 @@ class RoutersPool implements RoutersPoolInterface
     }
 
     /**
+     * @inheritDoc
+     *
      * @return RouterInterface[]
      */
-    public function get(): array // accept array of routes
+    public function get(): array
     {
         return $this->routers;
     }

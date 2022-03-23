@@ -2,14 +2,18 @@
 
 declare(strict_types=1);
 
-namespace App\Controller;
+namespace App\Model;
+
+use App\Controller\ControllerInterface;
 
 class Robot implements ControllerInterface
 {
     /**
+     * Config robots.txt file
+     *
      * @return void
      */
-    public function execute(): void // config robots.txt file
+    public function execute(): void
     {
         echo "<pre>";
         echo "User-agent: Googlebot

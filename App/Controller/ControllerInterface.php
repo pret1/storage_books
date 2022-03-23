@@ -7,7 +7,9 @@ namespace App\Controller;
 interface ControllerInterface
 {
     /**
+     * This is the main interface for all controllers created in the system, preferably display the selected page.
+     *
      * @return void
      */
-    public function execute(): void; // this function executes the logic defined in the class
+    public function execute(): void;
 }

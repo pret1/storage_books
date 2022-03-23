@@ -7,9 +7,11 @@ namespace App\Controller;
 class More implements ControllerInterface
 {
     /**
+     * @inheritDoc
+     *
      * @return void
      */
-    public function execute(): void // display example other pages
+    public function execute(): void
     {
         echo "More page";
     }

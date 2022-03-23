@@ -10,9 +10,11 @@ namespace App\Controller;
 class Main implements ControllerInterface
 {
     /**
+     * @inheritDoc
+     *
      * @return void
      */
-    public function execute(): void // display homepage
+    public function execute(): void
     {
         echo "Main page";
     }
