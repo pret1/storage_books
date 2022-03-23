@@ -36,6 +36,8 @@ class FrontController
         if (!$result) {
             throw new \Exception("Router was not found");
         }
+//        $result->connectDb();
         $result->execute();
+
     }
 }
