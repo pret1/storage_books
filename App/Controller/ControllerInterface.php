@@ -6,7 +6,7 @@ namespace App\Controller;
 
 use App\db\DbConnectInterface;
 
-interface ControllerInterface extends DbConnectInterface
+interface ControllerInterface
 {
     /**
      * This is the main interface for all controllers created in the system, preferably display the selected page.

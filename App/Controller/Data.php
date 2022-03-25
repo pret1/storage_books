@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-use App\db\DbConnectInterface;
-
-class Data implements DbConnectInterface
+class Data
 {
     private $db;
     private $sqlSelect;

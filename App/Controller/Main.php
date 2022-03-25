@@ -4,33 +4,27 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-use App\db\DbConnectInterface;
 use App\db\Database;
+use App\Output;
 
 /**
  * Class Main - Homepage
  */
-class Main implements ControllerInterface
+class Main
 {
-    private $connect;
 
-    public function __construct(DbConnectInterface $dbConnect)
-    {
-        $this->connect = $dbConnect;
-    }
-    /**
-     * @inheritDoc
-     *
-     * @return void
-     */
     public function execute(): void
     {
-        echo "Main page";
-    }
+//        $link = new Database();
+        $show = new Output();
+//        return $link->sqlSelect();
+//        var_dump($link->sqlSelect());
+//        $link->selectBooks('books');
+        $show->renderPhtml('View/show.phtml');
 
+//        return $link->queryBooks();
+    }
 }
 
-$link = new Database();
-$db = new Main($link);
 
 
