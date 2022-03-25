@@ -1,0 +1,25 @@
+<?php $link = new \App\DB\Database();
+//$book_id = $_POST['book_id'];
+$allBooks = $link->takeSelectBook('books', '*', 2);
+//$allBooks = $link->takeSelectBook();
+?>
+<?php require_once('header.phtml'); ?>
+<div class="listBooks">
+    <?php foreach ($allBooks as $oneBook) : ?>
+        <div style="display: flex; border: 1px solid black; margin: 10px; padding: 10px" class="oneBook"
+             id="<?= $oneBook['id'] ?>">
+            <input type="text" name="name" value="<?= $oneBook['name']; ?>">
+<!--            <p>--><?//= $oneBook['name']; ?><!--</p>-->
+            <p><?= substr($oneBook['content'], 1, 100); ?></p>
+            <p><?= $oneBook['date_write_book']; ?></p>
+            <p><?= $oneBook['genre']; ?></p>
+            <p><?= $oneBook['author']; ?></p>
+            <p><?= $oneBook['count_of_pages']; ?></p>
+            <div>
+                <a href="#"><button>Save</button></a>
+
+            </div>
+        </div>
+    <?php endforeach; ?>
+</div>
+<?php require_once('footer.phtml'); ?>

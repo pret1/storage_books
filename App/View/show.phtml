@@ -1,51 +1,27 @@
-<?php $link = new \App\db\Database();
-$allBooks = $link->selectBooks('books');
+<?php $link = new \App\DB\Database();
+$allBooks = $link->selectBooks('books', '*');
 ?>
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
+<?php require_once('header.phtml'); ?>
 <div class="crud">
     <h1>CRUD APP</h1>
-    <form action="/" method="post" name="crudForm">
+    <div class="crudForm">
         <div class="listBooks">
             <?php foreach ($allBooks as $oneBook) : ?>
                 <div style="display: flex; border: 1px solid black; margin: 10px; padding: 10px" class="oneBook"
                      id="<?= $oneBook['id'] ?>">
-                    <p><?= $name; ?></p>
-                    <p><?= $content; ?></p>
-                    <p><?= $dateWrite; ?></p>
-                    <p><?= $genre; ?></p>
-                    <p><?= $author; ?></p>
-                    <p><?= $countPages; ?></p>
+                    <p><?= $oneBook['name']; ?></p>
+                    <p><?= substr($oneBook['content'], 1, 100); ?></p>
+                    <p><?= $oneBook['date_write_book']; ?></p>
+                    <p><?= $oneBook['genre']; ?></p>
+                    <p><?= $oneBook['author']; ?></p>
+                    <p><?= $oneBook['count_of_pages']; ?></p>
                     <div>
-                        <button>Edit</button>
+<!--                        <a href="edit?book_id = --><?//= $oneBook['id']; ?><!--"><button>Edit</button></a>-->
+                        <a href="edit"><button>Edit</button></a>
                         <button>Delete</button>
                     </div>
                 </div>
             <?php endforeach; ?>
-            <!--            $i = 0;-->
-            <!--            while ($i<$row) {-->
-            <!--                ?>-->
-            <!--                <div class="oneBook" id="--><? //= $row['id']; ?><!--">-->
-            <!--                    <p>--><? //= $row['name']; ?><!--</p>-->
-            <!--                    <p>--><? //= $row['content']; ?><!--</p>-->
-            <!--                    <p>--><? //= $row['date_write_book']; ?><!--</p>-->
-            <!--                    <p>--><? //= $row['genre']; ?><!--</p>-->
-            <!--                    <p>--><? //= $row['author']; ?><!--</p>-->
-            <!--                    <p>--><? //= $row['count_of_pages']; ?><!--</p>-->
-            <!--                </div>-->
-            <!--                --><?php
-            //                $i++;
-            //            }
-            //            ?>
-
         </div>
         <p>If you want to add new book fill the fields and press send</p>
         <input type="text" name="name" placeholder="enter name book">
@@ -55,9 +31,8 @@ $allBooks = $link->selectBooks('books');
         <input type="text" name="genre" placeholder="enter genre">
         <input type="text" name="author" placeholder="enter author">
         <input type="number" name="count_of_pages" placeholder="enter count of pages">
-        <input type="submit" value="send">
+        <button>Send</button>
 
-    </form>
+    </div>
 </div>
-</body>
-</html>
+<?php require_once('footer.phtml'); ?>

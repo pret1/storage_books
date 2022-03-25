@@ -6,18 +6,11 @@ namespace App\Controller;
 
 use App\Output;
 
-/**
- * Class Main - Homepage
- */
-class Main
+class Edit
 {
-
     public function execute(): void
     {
         $show = new Output();
-        $show->renderPhtml('View/show.phtml');
+        $show->renderPhtml('View/edit.phtml');
     }
 }
-
-
-
