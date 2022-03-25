@@ -16,8 +16,8 @@ $allBooks = $link->selectBooks('books', '*');
                     <p><?= $oneBook['author']; ?></p>
                     <p><?= $oneBook['count_of_pages']; ?></p>
                     <div>
-<!--                        <a href="edit?book_id = --><?//= $oneBook['id']; ?><!--"><button>Edit</button></a>-->
-                        <a href="edit"><button>Edit</button></a>
+                        <a href="/edit/<?= $oneBook['id'] ?>"><button>Edit</button></a>
+<!--                        <a href="edit"><button>Edit</button></a>-->
                         <button>Delete</button>
                     </div>
                 </div>

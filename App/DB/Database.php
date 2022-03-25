@@ -25,7 +25,7 @@ class Database
     public function selectBooks(string $table, string $search): array
     {
         $this->connectDb();
-        $this->books = mysqli_query($this->db, "SELECT" . $search . "FROM " . $table);
+        $this->books = mysqli_query($this->db, "SELECT " . $search . " FROM " . $table);
         return mysqli_fetch_all($this->books, MYSQLI_ASSOC);
     }
 
