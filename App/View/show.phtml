@@ -16,22 +16,26 @@ $allBooks = $link->selectBooks('books', '*');
                     <p><?= $oneBook['author']; ?></p>
                     <p><?= $oneBook['count_of_pages']; ?></p>
                     <div>
-                        <a href="/edit/<?= $oneBook['id'] ?>"><button>Edit</button></a>
+                        <?php $book_id=$oneBook['id'] ?>
+                        <a href="/edit/<?=$book_id?>"><button>Edit</button></a>
+<!--                        <a href="/edit?book_id=--><?//=$book_id?><!--"><button>Edit</button></a>-->
 <!--                        <a href="edit"><button>Edit</button></a>-->
-                        <button>Delete</button>
+                        <a href="/delete/<?=$book_id?>"><button>Delete</button></a>
                     </div>
                 </div>
             <?php endforeach; ?>
         </div>
+        <form method="post" action="add" name="addForm">
         <p>If you want to add new book fill the fields and press send</p>
         <input type="text" name="name" placeholder="enter name book">
         <input type="text" name="content" placeholder="enter content book">
-        <p>enter date write book<input type="datetime-local" name="date_write_book"
-                                       placeholder="enter date write book "></p>
+        <p>enter date write book<input type="text" name="date_write_book"
+                                       placeholder="yyyy-mm-dd"></p>
         <input type="text" name="genre" placeholder="enter genre">
         <input type="text" name="author" placeholder="enter author">
         <input type="number" name="count_of_pages" placeholder="enter count of pages">
-        <button>Send</button>
+        <input type="submit" value="Send">
+        </form>
 
     </div>
 </div>
