@@ -49,10 +49,13 @@ class Database
 //        mysqli_query($this->db, "UPDATE books SET books.name = 'King', books.content = 'we change content', books.date_write_book = '2022-03-28', books.genre = 'fantasy', books.author = 'Konau', books.count_of_pages = 33 WHERE id = 2");
     }
 
-    public function addBook()
+    public function addBook($name, $content, $dateWrite, $genre, $author, $countPages)
+//    public function addBook()
     {
         $this->connectDb();
-        mysqli_query($this->db, "INSERT INTO books(name, content, date_write_book, genre, author, count_of_pages) VALUES('Do table', '101 way do table','2002-10-10', 'Children book', 'Hans Wilhelm', 18)");
+//        mysqli_query($this->db, "INSERT INTO books(name, content, date_write_book, genre, author, count_of_pages) VALUES('Do table', '101 way do table','2002-10-10', 'Children book', 'Hans Wilhelm', 18)");
+//        mysqli_query($this->db, sprintf("INSERT INTO books(books.name, content, date_write_book, genre, author, count_of_pages) VALUES('%s', '%s', '%s', '%s', '%s', '%s')"), $name, $content, $dateWrite, $genre, $author, $countPages);
+        mysqli_query($this->db, "INSERT INTO books(books.name, content, date_write_book, genre, author, count_of_pages) VALUES('$name', '$content', '$dateWrite', '$genre', '$author', '$countPages')");
     }
 
     public function deleteBook()

@@ -1,7 +1,7 @@
 <?php $link = new \App\DB\Database();
-$book_id = $_GET;
+$book_id = $_GET['book_id'];
 //$book_id = $_REQUEST;
-$allBooks = $link->takeSelectBook('books', '*', 2);
+$allBooks = $link->takeSelectBook('books', '*', $book_id);
 //$allBooks = $link->takeSelectBook();
 
 //$all = $_POST;

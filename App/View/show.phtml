@@ -17,10 +17,10 @@ $allBooks = $link->selectBooks('books', '*');
                     <p><?= $oneBook['count_of_pages']; ?></p>
                     <div>
                         <?php $book_id=$oneBook['id'] ?>
-                        <a href="/edit/<?=$book_id?>"><button>Edit</button></a>
-<!--                        <a href="/edit?book_id=--><?//=$book_id?><!--"><button>Edit</button></a>-->
+<!--                        <a href="/edit/--><?//=$book_id?><!--"><button>Edit</button></a>-->
+                        <a href="/edit?book_id=<?=$book_id?>"><button>Edit</button></a>
 <!--                        <a href="edit"><button>Edit</button></a>-->
-                        <a href="/delete/<?=$book_id?>"><button>Delete</button></a>
+                        <a href="/delete?book_id=<?=$book_id?>"><button>Delete</button></a>
                     </div>
                 </div>
             <?php endforeach; ?>
