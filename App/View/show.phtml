@@ -10,16 +10,14 @@ $allBooks = $link->selectBooks('books', '*');
                 <div style="display: flex; border: 1px solid black; margin: 10px; padding: 10px" class="oneBook"
                      id="<?= $oneBook['id'] ?>">
                     <p><?= $oneBook['name']; ?></p>
-                    <p><?= substr($oneBook['content'], 1, 100); ?></p>
+                    <p><?= substr($oneBook['content'], 0, 100); ?></p>
                     <p><?= $oneBook['date_write_book']; ?></p>
                     <p><?= $oneBook['genre']; ?></p>
                     <p><?= $oneBook['author']; ?></p>
                     <p><?= $oneBook['count_of_pages']; ?></p>
                     <div>
                         <?php $book_id=$oneBook['id'] ?>
-<!--                        <a href="/edit/--><?//=$book_id?><!--"><button>Edit</button></a>-->
                         <a href="/edit?book_id=<?=$book_id?>"><button>Edit</button></a>
-<!--                        <a href="edit"><button>Edit</button></a>-->
                         <a href="/delete?book_id=<?=$book_id?>"><button>Delete</button></a>
                     </div>
                 </div>

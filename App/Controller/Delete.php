@@ -8,7 +8,7 @@ use App\DB\Database;
 
 class Delete
 {
-    public function execute()
+    public function execute(): void
     {
         $id = $_GET['book_id'];
         $db = new Database();

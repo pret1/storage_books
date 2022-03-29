@@ -9,7 +9,7 @@ use App\DB\Database;
 class Add
 {
 
-    public function execute()
+    public function execute(): void
     {
         $name = $_POST['name'];
         $content = $_POST['content'];
