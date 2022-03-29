@@ -10,8 +10,9 @@ class Delete
 {
     public function execute()
     {
+        $id = $_GET['book_id'];
         $db = new Database();
-        $db->deleteBook();
+        $db->deleteBook($id);
         header('Location: /');
         exit();
     }

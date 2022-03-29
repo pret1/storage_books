@@ -11,8 +11,6 @@ class Add
 
     public function execute()
     {
-
-        $all = $_POST;
         $name = $_POST['name'];
         $content = $_POST['content'];
         $dateWrite = $_POST['date_write_book'];

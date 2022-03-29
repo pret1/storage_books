@@ -38,11 +38,13 @@ class Database
         return mysqli_fetch_all($this->books, MYSQLI_ASSOC);
     }
 
-    public function updateBook($table, $name, $content, $dateWrite, $genre, $author, $countPages, $id)
+    public function updateBook($name, $content, $dateWrite, $genre, $author, $countPages, $id)
 //    public function updateBook()
     {
         $this->connectDb();
-        $rezult = mysqli_query($this->db, sprintf("UPDATE %s SET books.name = %s, books.content = %s, books.date_write_book = %s, books.genre = %s, books.author = %s, books.count_of_pages = %s WHERE id = %s", $table, $name, $content, $dateWrite, $genre, $author, $countPages, $id));
+        $rezult = mysqli_query($this->db,"UPDATE books SET books.name = '$name', books.content = '$content', books.date_write_book = '$dateWrite', books.genre = '$genre', books.author = '$author', books.count_of_pages = '$countPages' WHERE id = '$id'");
+
+//        $rezult = mysqli_query($this->db, sprintf("UPDATE %s SET books.name = %s, books.content = %s, books.date_write_book = %s, books.genre = %s, books.author = %s, books.count_of_pages = %s WHERE id = %s", $table, $name, $content, $dateWrite, $genre, $author, $countPages, $id));
         if(!$rezult){
             echo 'Wrong query';
         }
@@ -50,17 +52,14 @@ class Database
     }
 
     public function addBook($name, $content, $dateWrite, $genre, $author, $countPages)
-//    public function addBook()
     {
         $this->connectDb();
-//        mysqli_query($this->db, "INSERT INTO books(name, content, date_write_book, genre, author, count_of_pages) VALUES('Do table', '101 way do table','2002-10-10', 'Children book', 'Hans Wilhelm', 18)");
-//        mysqli_query($this->db, sprintf("INSERT INTO books(books.name, content, date_write_book, genre, author, count_of_pages) VALUES('%s', '%s', '%s', '%s', '%s', '%s')"), $name, $content, $dateWrite, $genre, $author, $countPages);
         mysqli_query($this->db, "INSERT INTO books(books.name, content, date_write_book, genre, author, count_of_pages) VALUES('$name', '$content', '$dateWrite', '$genre', '$author', '$countPages')");
     }
 
-    public function deleteBook()
+    public function deleteBook($id)
     {
         $this->connectDb();
-        mysqli_query($this->db, "DELETE FROM books WHERE id = 4");
+        mysqli_query($this->db, sprintf("DELETE FROM books WHERE id = %s", $id));
     }
 }
