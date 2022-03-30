@@ -8,17 +8,13 @@ use App\DB\Database;
 
 class Add
 {
-
     public function execute(): void
     {
-        $name = $_POST['name'];
-        $content = $_POST['content'];
-        $dateWrite = $_POST['date_write_book'];
-        $genre = $_POST['genre'];
-        $author = $_POST['author'];
-        $countPages = $_POST['count_of_pages'];
+        $all = $_POST;
+        $keys = array_keys($all);
+        $tableFields = implode(', ', $keys);
         $db = new Database();
-        $db->addBook($name, $content, $dateWrite, $genre, $author, $countPages);
+        $db->addBook($tableFields, $all);
         header('Location: /');
         exit();
     }

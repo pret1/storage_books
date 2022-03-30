@@ -11,13 +11,9 @@ use App\Output;
  */
 class Main
 {
-
     public function execute(): void
     {
         $show = new Output();
         $show->renderPhtml('View/show.phtml');
     }
 }
-
-
-
