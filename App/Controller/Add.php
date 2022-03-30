@@ -11,10 +11,8 @@ class Add
     public function execute(): void
     {
         $all = $_POST;
-        $keys = array_keys($all);
-        $tableFields = implode(', ', $keys);
         $db = new Database();
-        $db->addBook($tableFields, $all);
+        $db->addBook($all);
         header('Location: /');
         exit();
     }

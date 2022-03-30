@@ -54,22 +54,32 @@ class Database
     public function updateBook(array $all): void
     {
         $this->connectDb();
-        $stmt = $this->db->prepare("UPDATE books SET name = ?, content = ?, date_write_book = ?, genre = ?, author = ?, count_of_pages =? WHERE id =? ");
-        $stmt->bind_param('sssssss', $all['name'], $all['content'], $all['date_write_book'], $all['genre'], $all['author'], $all['count_of_pages'], $all['id']);
-        $stmt->execute();
+        $values = '';
+        foreach ($all as $key => $value) {
+            $values .= $key . "='" . $value . "', ";
+        }
+        $id = $all['id'];
+        $values = trim($values, ', ');
+        $sql = "UPDATE books SET $values WHERE id = $id";
+        mysqli_query($this->db, $sql);
     }
 
     /**
-     * @param string $tableFields
      * @param array $all
      * @return void
      */
-    public function addBook(string $tableFields, array $all): void
+    public function addBook(array $all): void
     {
         $this->connectDb();
-        $stmt = $this->db->prepare("INSERT INTO books($tableFields) VALUES (?,?,?,?,?,?)");
-        $stmt->bind_param('ssssss', $all['name'], $all['content'], $all['date_write_book'], $all['genre'], $all['author'], $all['count_of_pages']);
-        $stmt->execute();
+        $keys = array_keys($all);
+        $tableFields = implode(', ', $keys);
+        $values = '';
+        foreach ($all as $value) {
+            $values .= "'" . $value . "', ";
+        }
+        $values = trim($values, ', ');
+        $sql = "INSERT INTO books ($tableFields) VALUES ($values)";
+        mysqli_query($this->db, $sql);
     }
 
     /**

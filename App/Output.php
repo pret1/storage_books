@@ -6,6 +6,10 @@ namespace App;
 
 class Output
 {
+    /**
+     * @param string $template
+     * @return void
+     */
     public function renderPhtml(string $template): void
     {
         ob_start();
