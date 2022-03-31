@@ -4,13 +4,16 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-class More implements ControllerInterface
+use App\Output;
+
+class Edit
 {
     /**
      * @return void
      */
     public function execute(): void
     {
-        echo "More page";
+        $show = new Output();
+        $show->renderPhtml('View/edit.phtml');
     }
 }

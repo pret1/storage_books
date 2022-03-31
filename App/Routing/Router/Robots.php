@@ -12,8 +12,6 @@ class Robots implements RouterInterface
 {
 
     /**
-     * @inheritDoc
-     *
      * @return ControllerInterface|false
      */
     public function match()

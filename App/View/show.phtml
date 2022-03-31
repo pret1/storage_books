@@ -1,0 +1,40 @@
+<?php $link = new \App\DB\Database();
+$allBooks = $link->selectBooks('books', '*');
+?>
+<?php require_once('header.phtml'); ?>
+<div class="crud">
+    <h1>CRUD APP</h1>
+    <div class="crudForm">
+        <div class="listBooks">
+            <?php foreach ($allBooks as $oneBook) : ?>
+                <div style="display: flex; border: 1px solid black; margin: 10px; padding: 10px" class="oneBook"
+                     id="<?= $oneBook['id'] ?>">
+                    <p><?= $oneBook['name']; ?></p>
+                    <p><?= substr($oneBook['content'], 0, 100); ?></p>
+                    <p><?= $oneBook['date_write_book']; ?></p>
+                    <p><?= $oneBook['genre']; ?></p>
+                    <p><?= $oneBook['author']; ?></p>
+                    <p><?= $oneBook['count_of_pages']; ?></p>
+                    <div>
+                        <?php $book_id=$oneBook['id'] ?>
+                        <a href="/edit?book_id=<?=$book_id?>"><button>Edit</button></a>
+                        <a href="/delete?book_id=<?=$book_id?>"><button>Delete</button></a>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+        <form method="post" action="add" name="addForm">
+        <p>If you want to add new book fill the fields and press send</p>
+        <input type="text" name="name" placeholder="enter name book">
+        <input type="text" name="content" placeholder="enter content book">
+        <p>enter date write book<input type="text" name="date_write_book"
+                                       placeholder="yyyy-mm-dd"></p>
+        <input type="text" name="genre" placeholder="enter genre">
+        <input type="text" name="author" placeholder="enter author">
+        <input type="number" name="count_of_pages" placeholder="enter count of pages">
+        <input type="submit" value="Send">
+        </form>
+
+    </div>
+</div>
+<?php require_once('footer.phtml'); ?>

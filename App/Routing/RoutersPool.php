@@ -21,8 +21,6 @@ class RoutersPool implements RoutersPoolInterface
 
     /**
      * @inheritDoc
-     *
-     * @return RouterInterface[]
      */
     public function get(): array
     {

@@ -7,8 +7,6 @@ namespace App\Controller;
 class Listing implements ControllerInterface
 {
     /**
-     * @inheritDoc
-     *
      * @return void
      */
     public function execute(): void

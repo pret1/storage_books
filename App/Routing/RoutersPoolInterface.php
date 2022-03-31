@@ -9,7 +9,7 @@ interface RoutersPoolInterface
     /**
      * Get a set of routers registered in the system
      *
-     * @return array
+     * @return RouterInterface[]
      */
     public function get(): array;
 }

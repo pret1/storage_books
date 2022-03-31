@@ -4,18 +4,19 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Output;
+
 /**
  * Class Main - Homepage
  */
-class Main implements ControllerInterface
+class Main
 {
     /**
-     * @inheritDoc
-     *
      * @return void
      */
     public function execute(): void
     {
-        echo "Main page";
+        $show = new Output();
+        $show->renderPhtml('View/show.phtml');
     }
 }

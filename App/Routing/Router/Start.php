@@ -11,18 +11,21 @@ class Start implements RouterInterface
 {
 
     /**
-     * @inheritDoc
-     *
      * @return ControllerInterface|false
      */
     public function match()
     {
         $routes = explode('/', $_SERVER['REQUEST_URI']);
-        $actionName = $routes[1] ?: 'Main';
+        $editRoutes = stristr($routes[1], '?', true);
+        if(!$editRoutes){
+            $actionName = $routes[1] ?: 'Main';
+        } else {
+            $actionName = $editRoutes ?: 'Main';
+        }
         $controllerClass = sprintf("\App\Controller\%s", ucfirst($actionName));
         if (class_exists($controllerClass)) {
             /** @var ControllerInterface $controller */
-            return $controller = new $controllerClass();
+            return new $controllerClass();
         }
         return false;
     }
