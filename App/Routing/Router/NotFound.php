@@ -11,8 +11,6 @@ class NotFound implements RouterInterface
 {
 
     /**
-     * @inheritDoc
-     *
      * @return ControllerInterface|false
      */
     public function match()

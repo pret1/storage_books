@@ -8,6 +8,9 @@ use App\Output;
 
 class Edit
 {
+    /**
+     * @return void
+     */
     public function execute(): void
     {
         $show = new Output();

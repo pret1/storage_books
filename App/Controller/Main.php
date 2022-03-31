@@ -11,6 +11,9 @@ use App\Output;
  */
 class Main
 {
+    /**
+     * @return void
+     */
     public function execute(): void
     {
         $show = new Output();

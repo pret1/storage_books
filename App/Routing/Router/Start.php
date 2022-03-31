@@ -11,8 +11,6 @@ class Start implements RouterInterface
 {
 
     /**
-     * @inheritDoc
-     *
      * @return ControllerInterface|false
      */
     public function match()
@@ -27,7 +25,7 @@ class Start implements RouterInterface
         $controllerClass = sprintf("\App\Controller\%s", ucfirst($actionName));
         if (class_exists($controllerClass)) {
             /** @var ControllerInterface $controller */
-            return $controller = new $controllerClass();
+            return new $controllerClass();
         }
         return false;
     }

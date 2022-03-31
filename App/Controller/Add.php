@@ -8,6 +8,9 @@ use App\DB\Database;
 
 class Add
 {
+    /**
+     * @return void
+     */
     public function execute(): void
     {
         $all = $_POST;

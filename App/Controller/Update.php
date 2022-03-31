@@ -9,6 +9,9 @@ use App\DB\Database;
 
 class Update
 {
+    /**
+     * @return void
+     */
     public function execute(): void
     {
         $all = $_POST;

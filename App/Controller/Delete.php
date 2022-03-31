@@ -8,6 +8,9 @@ use App\DB\Database;
 
 class Delete
 {
+    /**
+     * @return void
+     */
     public function execute(): void
     {
         $id = $_GET['book_id'];

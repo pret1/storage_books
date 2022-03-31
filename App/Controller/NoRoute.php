@@ -7,8 +7,6 @@ namespace App\Controller;
 class NoRoute implements ControllerInterface
 {
     /**
-     * @inheritDoc
-     *
      * @return void
      */
     public function execute(): void
