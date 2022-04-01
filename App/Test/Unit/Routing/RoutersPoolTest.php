@@ -8,18 +8,30 @@ use PHPUnit\Framework\TestCase;
 
 class RoutersPoolTest extends TestCase
 {
-    protected function setUp(): void
-    {
-        parent::setUp();
-    }
-
     public function testGetPositive()
     {
-        $this->assertTrue(true);
+        $routerMock = $this->createMock(\App\Routing\Router\Start::class);
+        $object = new \App\Routing\RoutersPool([$routerMock]);
+        $result = $object->get();
+        $this->assertEquals([$routerMock], $result);
     }
 
+    /**
+     * @return void
+     * @throws \App\AppException
+     */
     public function testGetPositive2()
     {
-        $this->assertTrue(false);
+        $object = new \App\Routing\RoutersPool();
+        $result = $object->get();
+        $this->assertEquals([], $result);
+    }
+
+    public function testGetNegative()
+    {
+        $unexpectedObjectMock = $this->createMock(\App\DB\Database::class);
+        $object = new \App\Routing\RoutersPool([$unexpectedObjectMock]);
+        $this->expectException('App\AppException');
+        $result = $object->get();
     }
 }
