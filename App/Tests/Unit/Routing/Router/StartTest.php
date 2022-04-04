@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Tests\Unit\Routing\Router;
 
+use App\Controller\Edit;
+use App\Controller\Main;
 use App\System\HttpRequest;
 use PHPUnit\Framework\TestCase;
 use App\Routing\Router\Start;
@@ -16,48 +18,48 @@ class StartTest extends TestCase
     private $stub;
 
     /**
+     * @return array
+     */
+    public function requestUriDataProvider(): array
+    {
+        return [
+            ['requestUri' => '/', 'expectedResult' => Main::class],
+            ['requestUri' => '/edit?book_id', 'expectedResult' => Edit::class],
+        ];
+    }
+
+    /**
      * @return void
      */
     protected function setUp(): void
     {
         $this->stub = $this->createMock(HttpRequest::class);
     }
-    /**
-     * @return void
-     * @covers \App\Routing\Router\Start::match
-     */
-    public function testPositiveStart()
-    {
-//        $stub = $this->createMock(HttpRequest::class);
-//        $stub->expects($this->once())->method('getRequestUri')->willReturn('/');
-        $this->stub->expects($this->once())->method('getRequestUri')->willReturn('/');
-        $object = new Start($this->stub);
-        $result = $object->match();
-        $this->assertInstanceOf(\App\Controller\Main::class, $result);
-    }
 
     /**
+     * @param string $requestUri
+     * @param string $expectedResult
      * @return void
-     * @covers \App\Controller\Edit::execute
+     * @covers       \App\Routing\Router\Start::match
+     * @dataProvider requestUriDataProvider
      */
-    public function testPositiveStart2()
+    public function testStartPositive(string $requestUri, string $expectedResult): void
     {
-        $this->stub->expects($this->once())->method('getRequestUri')->willReturn('/edit?book_id');
+        $this->stub->expects($this->once())->method('getRequestUri')->willReturn($requestUri);
         $object = new Start($this->stub);
         $result = $object->match();
-        $this->assertInstanceOf(\App\Controller\Edit::class, $result);
+        $this->assertInstanceOf($expectedResult, $result);
     }
 
     /**
      * @return void
      * @covers \App\Routing\Router\Start::match
      */
-    public function testPositiveStart3()
+    public function testStartNegative(): void
     {
-        $this->stub->expects($this->once())->method('getRequestUri')->willReturn('/wdasdasdss');
+        $this->stub->expects($this->once())->method('getRequestUri')->willReturn('/url-unexpected-value');
         $object = new Start($this->stub);
-        $result = $object->match();
-        $this->assertSame(false, $result);
+        $this->assertFalse($object->match());
     }
 
 }
