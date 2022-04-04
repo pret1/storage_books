@@ -6,18 +6,31 @@ namespace App\Routing\Router;
 
 use App\Controller\ControllerInterface;
 use App\Routing\RouterInterface;
+use App\System\HttpRequestInterface;
 
 class Start implements RouterInterface
 {
+    /**
+     * @var HttpRequestInterface
+     */
+    private HttpRequestInterface $httpRequest;
+
+    /**
+     * @param HttpRequestInterface $httpRequest
+     */
+    public function __construct(HttpRequestInterface $httpRequest)
+    {
+        $this->httpRequest = $httpRequest;
+    }
 
     /**
      * @return ControllerInterface|false
      */
     public function match()
     {
-        $routes = explode('/', $_SERVER['REQUEST_URI']);
+        $routes = explode('/', $this->httpRequest->getRequestUri());
         $editRoutes = stristr($routes[1], '?', true);
-        if(!$editRoutes){
+        if (!$editRoutes) {
             $actionName = $routes[1] ?: 'Main';
         } else {
             $actionName = $editRoutes ?: 'Main';

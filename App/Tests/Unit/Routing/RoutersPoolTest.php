@@ -2,13 +2,17 @@
 
 declare(strict_types=1);
 
-namespace App\Test\Unit\Routing;
+namespace App\Tests\Unit\Routing;
 
 use PHPUnit\Framework\TestCase;
 
 class RoutersPoolTest extends TestCase
 {
-    public function testGetPositive()
+    /**
+     * @return void
+     * @throws \App\AppException
+     */
+    public function testGetPositive(): void
     {
         $routerMock = $this->createMock(\App\Routing\Router\Start::class);
         $object = new \App\Routing\RoutersPool([$routerMock]);
@@ -20,14 +24,18 @@ class RoutersPoolTest extends TestCase
      * @return void
      * @throws \App\AppException
      */
-    public function testGetPositive2()
+    public function testGetPositiveException(): void
     {
         $object = new \App\Routing\RoutersPool();
         $result = $object->get();
         $this->assertEquals([], $result);
     }
 
-    public function testGetNegative()
+    /**
+     * @return void
+     * @throws \App\AppException
+     */
+    public function testGetNegative(): void
     {
         $unexpectedObjectMock = $this->createMock(\App\DB\Database::class);
         $object = new \App\Routing\RoutersPool([$unexpectedObjectMock]);

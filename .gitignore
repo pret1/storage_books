@@ -1,2 +1,6 @@
 /vendor
 /.phpunit.result.cache
+/App/.phpunit.result.cache
+/App/build
+/var
+/App/Tests/Unit/Routing/Router/var

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Test\Unit\Routing;
+namespace App\Tests\Unit\Routing;
 
 use App\Routing\FrontController;
 use App\Routing\Router\Robots;

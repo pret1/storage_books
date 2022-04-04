@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Routing;
 
 use App\Controller\ControllerInterface;
+use App\System\HttpRequest;
 use App\Routing\Router\{NotFound, Robots, Start};
 
 
@@ -21,7 +22,7 @@ class FrontController
         $routersPool = new RoutersPool(
             [
                 new Robots(),
-                new Start(),
+                new Start(new HttpRequest()),
                 new NotFound(),
             ]
         );
